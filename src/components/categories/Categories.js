@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import useStyles from './categoriesStyles';
 import List from "@material-ui/core/List";
@@ -8,6 +8,7 @@ import GridList from "@material-ui/core/GridList";
 
 const Categories = () => {
   const classes = useStyles();
+  const [onPage, setOnPage] = useState(0);
 
   const menues = [
     { primary: "아이템 둘러보기", to: "/projects" },
@@ -15,8 +16,9 @@ const Categories = () => {
     { primary: "팀원 찾기", to: "/findteam" },
   ];
 
+
   const menuIteams = menues.map((menu, index) => {
-    return <ListItemLink key={index} to={menu.to} primary={menu.primary} />;
+    return <ListItemLink key={index} to={menu.to} primary={menu.primary} onPage={onPage === index ? true : false} />;
   });
 
   return <List className={classes.list}>{menuIteams}</List>;

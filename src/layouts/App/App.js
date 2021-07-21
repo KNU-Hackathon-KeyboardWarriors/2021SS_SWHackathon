@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
-import Projects from "../../pages/projects/Project";
+import Projects from "../../pages/projects/Projects";
 import Buildup from "../../pages/buildup/Buildup";
 import Findteam from "../../pages/findteam/Findteam";
 

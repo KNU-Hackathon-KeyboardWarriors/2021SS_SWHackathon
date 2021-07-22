@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import "./Chat.css";
-
 import useStyles from "./chatStyles";
+
+import Input from "@material-ui/core/Input";
+import SendIcon from "@material-ui/icons/Send";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
@@ -22,20 +24,23 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-const analytics = firebase.analytics();
 
 function Chat() {
-    const classes = useStyles();
+    // const classes = useStyles();
     const [user] = useAuthState(auth);
 
     return (
-        <div className={classes.Chat}>
-            <section className={classes.chat_section}> {user ? <ChatRoom /> : <SignIn />}</section>
+        <div className="Chat">
+            <section className="Chat_section">
+                {" "}
+                {user ? <ChatRoom /> : <SignIn />}
+            </section>
         </div>
     );
 }
 
 function SignIn() {
+    // const classes = useStyles();
     const signInWithGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(provider);
@@ -43,14 +48,15 @@ function SignIn() {
 
     return (
         <>
-            <button className={classes.signin} onClick={signInWithGoogle}>
-                구글로 로그인 하세요
+            <button className="sign-in" onClick={signInWithGoogle}>
+            구글로 로그인 하세요
             </button>
         </>
     );
 }
 
 function ChatRoom() {
+    // const classes = useStyles();
     const dummy = useRef();
     const messagesRef = firestore.collection("messages");
     const query = messagesRef.orderBy("createdAt").limit(25);
@@ -68,7 +74,7 @@ function ChatRoom() {
             text: formValue,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             uid,
-            photoURL
+            photoURL,
         });
 
         setFormValue("");
@@ -77,7 +83,7 @@ function ChatRoom() {
 
     return (
         <>
-            <main className={classes.main}>
+            <main className="main">
                 {messages &&
                     messages.map((msg) => (
                         <ChatMessage key={msg.id} message={msg} />
@@ -86,29 +92,38 @@ function ChatRoom() {
                 <span ref={dummy}></span>
             </main>
 
-            <form onSubmit={sendMessage}>
-                <input
+            <form onSubmit={sendMessage} className="form" >
+                <Input
                     value={formValue}
                     onChange={(e) => setFormValue(e.target.value)}
-                    placeholder="사람들과 아이디어를 성장시켜 보세요"
+                    placeholder="이야기를 나누어 보세요"
+                    className="input"
                 />
-
-                <button type="submit" disabled={!formValue}>
-                    🕊️
-                </button>
+                <SendIcon className="button" />
+                {/* <button type="submit" disabled={!formValue}>
+                    
+                </button> */}
             </form>
         </>
     );
 }
 
 function ChatMessage(props) {
+    // const classes = useStyles();
     const { text, uid, photoURL } = props.message;
     const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
 
     return (
         <>
             <div className={`message ${messageClass}`}>
-                <img className={classes.img} src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+                {console.log(messageClass)}
+                <img
+                    className="img"
+                    src={
+                        photoURL ||
+                        "https://api.adorable.io/avatars/23/abott@adorable.png"
+                    }
+                />
                 <p>{text}</p>
             </div>
         </>

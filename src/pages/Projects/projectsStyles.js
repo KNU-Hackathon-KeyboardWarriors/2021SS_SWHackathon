@@ -32,8 +32,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(6),
   },
   btnn: {
-    marginRight: theme.spacing(2),
-    marginTop: theme.spacing(3),
+    position: 'absolute',
+    right:"10%",
+    top: 20,
     backgroundColor: "red",
     fontSize: 16,
     color: "white",

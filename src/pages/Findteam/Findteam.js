@@ -46,7 +46,16 @@ export default function FindTeam() {
         <React.Fragment>
             <CssBaseline />
             <main>
-                <Container >
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.btnn}
+                    component={Link}
+                    to={"/newfindteam"}
+                >
+                    팀원찾기 등록
+                </Button>
+                <Container>
                     <TableContainer component={Paper}>
                         <Table
                             className={classes.table}
@@ -54,9 +63,24 @@ export default function FindTeam() {
                         >
                             <TableHead>
                                 <TableRow>
-                                    <TableCell align="center" className={classes.firstCell} >번호</TableCell>
-                                    <TableCell align="center" className={classes.middleCell}>제목</TableCell>
-                                    <TableCell align="center" className={classes.lastCell}>글쓴이</TableCell>
+                                    <TableCell
+                                        align="center"
+                                        className={classes.firstCell}
+                                    >
+                                        번호
+                                    </TableCell>
+                                    <TableCell
+                                        align="center"
+                                        className={classes.middleCell}
+                                    >
+                                        제목
+                                    </TableCell>
+                                    <TableCell
+                                        align="center"
+                                        className={classes.lastCell}
+                                    >
+                                        글쓴이
+                                    </TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -65,17 +89,20 @@ export default function FindTeam() {
                                         component={Link}
                                         to={`/findteamDetail/${index}`}
                                     >
-                                        <TableCell align="center">{index + 1}</TableCell>
-                                        <TableCell align="center">{team.title}</TableCell>
-                                        <TableCell align="center">박세영</TableCell>
+                                        <TableCell align="center">
+                                            {index + 1}
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            {team.title}
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            박세영
+                                        </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Button component={Link} to={"/newfindteam"}>
-                        팀원 찾기
-                    </Button>
                 </Container>
             </main>
         </React.Fragment>

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Header from '../../components/appbar/Appbar';
-import Categories from '../../components/categories/Categories';
 import Copyright from '../../components/copyright/Copyright';
 import useStyles from './buildupStyles';
 
@@ -23,8 +21,6 @@ export default function Projects() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header/>
-      <Categories/>
       <main>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}

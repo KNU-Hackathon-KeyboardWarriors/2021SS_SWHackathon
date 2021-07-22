@@ -1,9 +1,9 @@
 # 창업 오픈스페이스
 
 ### 팀원 정보
-* 박세영 - Frontend(Leader)
-* 황태호 - Backend
-* 이창윤 - Publisher
+* 박세영 : Frontend(Leader)
+* 황태호 : Backend
+* 이창윤 : Publisher
 
 ### 주제  
 창업활동 중 비대면으로 고객의 니즈를 검증할 수 있는 플랫폼  

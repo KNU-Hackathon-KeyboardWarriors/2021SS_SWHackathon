@@ -5,7 +5,7 @@ import Projects from "../../pages/Projects/Projects";
 import Buildup from "../../pages/Buildup/Buildup";
 import Findteam from "../../pages/Findteam/Findteam";
 import ProjectDetails from "../../pages/ProjectDetails/ProjectDetails";
-
+import NewProject from '../../pages/NewProject/NewProject';
 
 import Appbar from "../Appbar/Appbar";
 import Categories from "../Categories/Categories";
@@ -25,6 +25,7 @@ function App() {
         <Route path="/buildup" component={Buildup} />
         <Route path="/findteam" component={Findteam} />
         <Route path="/projectDetail/:projectIndex" component={ProjectDetails} />
+        <Route path="/newproject" component={NewProject}/>
       </Switch>      
       <footer>
         <Copyright />

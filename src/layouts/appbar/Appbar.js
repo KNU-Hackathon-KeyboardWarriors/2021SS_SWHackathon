@@ -5,18 +5,20 @@ import Container from '@material-ui/core/Container';
 import img1 from "../../images/mark.jpg"
 import img2 from "../../images/knu.jpg"
 
-const Appbar = () => {
-  return (
-      <AppBar position="relative" color="red">
-        <Toolbar>
-          <img src={img1} width="45" height="43"/>
-          <img src={img2} width="80" height="25" hspace="10"/>
-          <Typography variant="h6" noWrap>
-            창업 오픈스페이스
-          </Typography>
-        </Toolbar>
-      </AppBar>
-  );
-};
+import useStyles from "./appbarStyles";
 
-export default Appbar;
+export default function Appbar() {
+  const classes = useStyles();
+
+  return (
+    <AppBar position="static" className={classes.root}>
+      <Toolbar className={classes.toolbar}>
+        <img src={img1} width="50" height="47"/>
+        <img src={img2} width="120" height="35" hspace="18" vspace="7"/>
+        <Typography className={classes.title}>
+          창업 오픈스페이스
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  );
+}

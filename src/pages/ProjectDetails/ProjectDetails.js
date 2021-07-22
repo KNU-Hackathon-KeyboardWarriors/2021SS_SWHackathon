@@ -36,8 +36,8 @@ const ProjectDetails = ({ match }) => {
 
   useEffect(() => {
     axios.get("/getProjects").then((res) => {
-      console.log(res.data.data);
-      setCrntPrj(res.data.data[match.params.projectIndex]);
+      console.log(res.data);
+      setCrntPrj(res.data[match.params.projectIndex]);
       setIsLoading(false);
     });
   }, []);

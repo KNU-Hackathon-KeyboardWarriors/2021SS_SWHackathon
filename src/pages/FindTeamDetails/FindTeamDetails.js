@@ -2,14 +2,10 @@ import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 
-import useStyles from "./projectDetailsStyles";
-
 import Comments from "../../components/Comments/Comments";
-import ModalSubmit from "./ModalSubmit";
 
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 const comments = {
@@ -26,21 +22,14 @@ const comments = {
   num: 2,
 };
 
-const ProjectDetails = ({ match }) => {
-  const classes = useStyles();
+const FindTeamDetails = ({ match }) => {
   const [crntPrj, setCrntPrj] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
   useEffect(() => {
-    axios.get("/projects").then((res) => {
+    axios.get("/getProjects").then((res) => {
       console.log(res.data);
-      setCrntPrj(res.data[match.params.projectIndex]);
+      setCrntPrj(res.data[match.params.findteamIndex]);
       setIsLoading(false);
     });
   }, []);
@@ -50,23 +39,13 @@ const ProjectDetails = ({ match }) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container className={classes.containe}>
-        <Typography className={classes.title_set}>
-          {crntPrj.title}
-        </Typography>
+      <Container>
+        <Typography variant="h3">{crntPrj.title}</Typography>
         <img src={crntPrj.image} alt="없어용" />
-        <Button variant="outlined" color="primary" onClick={()=>setIsModalOpen(true)}>
-          신청하기
-        </Button>
-        <ModalSubmit
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-          handleCloseModal={handleCloseModal}
-        />
         <Comments data={comments} />
       </Container>
     </React.Fragment>
   );
 };
 
-export default ProjectDetails;
+export default FindTeamDetails;

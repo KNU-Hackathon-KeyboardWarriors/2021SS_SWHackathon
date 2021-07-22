@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import useStyles from "./projectsStyles";
+import useStyles from "./buildupStyles";
 
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -12,23 +12,19 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-export default function Projects() {
+export default function Buildup() {
   const classes = useStyles();
-  const [projects, setProjects] = useState();
+  const [buildup, setProjects] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(()=> {
-    console.log('ue');
     const fetchData = async() => {
-      const res = await axios.get('/getProjects');
+      const res = await axios.get('/buildups');
       setProjects(res.data);
       setIsLoading(false);
     }
-    console.log('ue2');
     fetchData();
-    console.log('ue3');
   }, []);
 
   useEffect(()=> {
@@ -36,7 +32,7 @@ export default function Projects() {
   }, [isLoading]);
 
   if(isLoading) return <Typography>Loading...</Typography>
-  if(!projects) return <Typography>No Project..</Typography>
+  if(!buildup) return <Typography>No Build up...</Typography>
 
   return (
     <React.Fragment>
@@ -44,13 +40,13 @@ export default function Projects() {
       <main>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={4}>
-            {/* {console.log(projects)} */}
-            {projects.map((project, index) => (
+            {/* {console.log(buildup)} */}
+            {buildup.map((project, index) => (
               <Grid item xs={12} sm={6} md={4}>
                 <Card
                   className={classes.card}
                   component={Link}
-                  to={`/projectDetail/${index}`}
+                  to={`/buildupDetail/${index}`}
                 >
                   <CardMedia
                     className={classes.cardMedia}
@@ -64,10 +60,7 @@ export default function Projects() {
               </Grid>
             ))}
           </Grid>
-          <Button className={classes.btnn} 
-          component={Link} to={"/newproject"} >
-            프로젝트 등록
-          </Button>
+          <Button component={Link} to={"/newproject"} >새 프로잭트 등록하기</Button>
         </Container>
       </main>
     </React.Fragment>

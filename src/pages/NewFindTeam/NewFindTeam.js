@@ -1,13 +1,13 @@
 import React, { useEffect, useCallback, useState } from "react";
 import axios from "axios";
-import useStyles from "./newProjectStyles";
+import useStyles from './newFindTeamStyles';
 
 import Container from "@material-ui/core/Container";
 import Typograph from "@material-ui/core/Typography";
 import FilledInput from '@material-ui/core/FilledInput';
 import Button from "@material-ui/core/Button";
 
-export default function NewProject() {
+const NewProject = () => {
   const classes = useStyles();
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
@@ -15,13 +15,12 @@ export default function NewProject() {
   const handleOnSubmit = useCallback((e) => {
     e.preventDefault();
     if(!title || !title.trim() || !content || !content.trim()) return;
-    axios.post('/projects', {
+    axios.post('/teams', {
       title: title,
       content: content
     })
     .then(()=>{
       console.log('success');
-      
     })
     .catch(e=>{
       console.log(e);
@@ -55,3 +54,5 @@ export default function NewProject() {
     </Container>
   );
 };
+
+export default NewProject;

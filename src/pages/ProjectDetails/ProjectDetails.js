@@ -54,7 +54,10 @@ const ProjectDetails = ({ match }) => {
         <Typography className={classes.title_set}>
           {crntPrj.title}
         </Typography>
-        <img src={crntPrj.image} alt="없어용" />
+        <img src={crntPrj.image} alt="" />
+        <Typography>
+          {crntPrj.content}
+        </Typography>
         <Button variant="outlined" color="primary" onClick={()=>setIsModalOpen(true)}>
           신청하기
         </Button>

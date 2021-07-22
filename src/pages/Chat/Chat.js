@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import "./Chat.css";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
@@ -26,12 +27,7 @@ function Chat() {
 
     return (
         <div className="Chat">
-            <header>
-                <h1>⚛️🔥💬</h1>
-                <SignOut />
-            </header>
-
-            <section>{user ? <ChatRoom /> : <SignIn />}</section>
+            <section> {user ? <ChatRoom /> : <SignIn />}</section>
         </div>
     );
 }
@@ -45,23 +41,9 @@ function SignIn() {
     return (
         <>
             <button className="sign-in" onClick={signInWithGoogle}>
-                Sign in with Google
+                구글로 로그인 하세요
             </button>
-            <p>
-                Do not violate the community guidelines or you will be banned
-                for life!
-            </p>
         </>
-    );
-}
-
-function SignOut() {
-    return (
-        auth.currentUser && (
-            <button className="sign-out" onClick={() => auth.signOut()}>
-                Sign Out
-            </button>
-        )
     );
 }
 
@@ -83,7 +65,7 @@ function ChatRoom() {
             text: formValue,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             uid,
-            photoURL,
+            photoURL
         });
 
         setFormValue("");
@@ -105,7 +87,7 @@ function ChatRoom() {
                 <input
                     value={formValue}
                     onChange={(e) => setFormValue(e.target.value)}
-                    placeholder="say something nice"
+                    placeholder="사람들과 아이디어를 성장시켜 보세요"
                 />
 
                 <button type="submit" disabled={!formValue}>
@@ -118,13 +100,12 @@ function ChatRoom() {
 
 function ChatMessage(props) {
     const { text, uid, photoURL } = props.message;
-
     const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
 
     return (
         <>
             <div className={`message ${messageClass}`}>
-                {/* <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} /> */}
+                <img className="img" src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
                 <p>{text}</p>
             </div>
         </>

@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./Chat.css";
 
+import useStyles from "./chatStyles";
+
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
@@ -23,6 +25,7 @@ const firestore = firebase.firestore();
 const analytics = firebase.analytics();
 
 function Chat() {
+    const classes = useStyles();
     const [user] = useAuthState(auth);
 
     return (

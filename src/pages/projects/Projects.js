@@ -63,7 +63,7 @@ export default function Projects() {
               </Grid>
             ))}
           </Grid>
-          <Button component={Link} to={"/newproject"} >새 프로잭트 등록하기</Button>
+          <Button component={Link} to={"/newproject"} >새 프로젝트 등록하기</Button>
         </Container>
       </main>
     </React.Fragment>

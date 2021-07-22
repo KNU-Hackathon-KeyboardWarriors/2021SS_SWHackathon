@@ -6,10 +6,8 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     toolbar: {
-      minHeight: 86,
-      alignItems: 'flex-start',
       paddingTop: theme.spacing(2),
-      paddingBottom: theme.spacing(2.3),
+      paddingBottom: theme.spacing(2),
     },
     title: {
       fontSize: 35,

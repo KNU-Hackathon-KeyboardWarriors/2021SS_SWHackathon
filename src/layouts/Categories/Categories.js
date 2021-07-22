@@ -26,11 +26,18 @@ const Categories = () => {
     return (
       <ListItem
         component={NavLink}
+        activeStyle={{backgroundColor:"transparent", 
+        textDecoration:"underline",
+        textUnderlinePosition:"under",  
+      }}
         to={menu.to}
         selected={selectedIndex === index}
         onClick={(e) => handleListItemClick(e, index)}
       >
-        <ListItemText primary={menu.primary} />
+        <ListItemText 
+          classes={{primary:classes.listItemText}}
+          primary={menu.primary} 
+         />
       </ListItem>
     );
   });

@@ -28,6 +28,19 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
+  titles: {
+    fontSize: 34,
+    textAlign: "center",
+  },
+  inputs: {
+    
+  },
+  btns: {
+    marginLeft: theme.spacing(10),
+    border: "1px solid black",
+    fontSize: 16,
+    color: "black",
+  },
 }));
 
 function ModalSubmit(props) {
@@ -44,17 +57,15 @@ function ModalSubmit(props) {
       aria-describedby="simple-modal-description"
     >
       <div style={modalStyle} className={classes.paper}>
-        <Typography variant="h3">
+        <Typography className={classes.titles}>
           체험 신청서
         </Typography>
-        <form>
-          <InputLabel>이름</InputLabel>
-          <Input />
-          <InputLabel>연락처</InputLabel>
-          <Input />
-          <InputLabel>기타 요청사항</InputLabel>
-          <Input />
-          <Button onClick={handleCloseModal}>신청</Button>
+        <form className={classes.inputs}>
+          <Input placeholder="이름"/>
+          <Input placeholder="연락처"/>
+          <Input placeholder="기타 요청사항"/>
+          <Button className={classes.btns}
+          onClick={handleCloseModal}>신청</Button>
         </form>
       </div>
     </Modal>

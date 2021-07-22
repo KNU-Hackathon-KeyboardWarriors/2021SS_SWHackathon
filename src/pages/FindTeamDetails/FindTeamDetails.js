@@ -27,7 +27,7 @@ const FindTeamDetails = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("/getProjects").then((res) => {
+    axios.get("/teams").then((res) => {
       console.log(res.data);
       setCrntPrj(res.data[match.params.findteamIndex]);
       setIsLoading(false);

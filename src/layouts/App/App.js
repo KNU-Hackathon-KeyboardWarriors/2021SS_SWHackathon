@@ -5,6 +5,8 @@ import Projects from "../../pages/Projects/Projects";
 import ProjectDetails from "../../pages/ProjectDetails/ProjectDetails";
 import NewProject from "../../pages/NewProject/NewProject";
 
+import Chat from '../../pages/Chat/Chat';
+
 import Buildup from "../../pages/Buildup/Buildup";
 import BuildupDetails from "../../pages/BuildupDetails/BuildupDetails";
 import NewBuildup from "../../pages/NewBuildup/NewBuildup";
@@ -34,7 +36,7 @@ function App() {
                 />
                 <Route path="/newproject" component={NewProject} />
 
-                <Route path="/buildup" component={Buildup} />
+                <Route path="/buildup" component={Chat} />
                 <Route
                     path="/buildupDetail/:buildupIndex"
                     component={BuildupDetails}

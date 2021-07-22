@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     display: "flex",
     flexDirection: "column",
+    textDecoration: "none",
   },
   cardMedia: {
     paddingTop: "56.25%", // 16:9
@@ -30,6 +31,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  btnn: {
+    marginRight: theme.spacing(2),
+    marginTop: theme.spacing(3),
+    backgroundColor: "red",
+    fontSize: 16,
+    color: "white",
+    fontWeight: "bold",
+    '&:hover': {
+      backgroundColor: "#E00000",
+    },
+  }
 }));
 
 export default useStyles;

@@ -1,13 +1,15 @@
 import React, { useEffect, useCallback, useState } from "react";
 import axios from "axios";
 
+import useStyles from "./newProjectStyles";
+
 import Container from "@material-ui/core/Container";
 import Typograph from "@material-ui/core/Typography";
-import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
+import FilledInput from '@material-ui/core/FilledInput';
 import Button from "@material-ui/core/Button";
 
-const NewProject = () => {
+export default function NewProject() {
+  const classes = useStyles();
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
 
@@ -33,17 +35,23 @@ const NewProject = () => {
     setContent(e.target.value);
   }
   return (
-    <Container>
-      <Typograph varient="h4">새 프로젝트 등록</Typograph>
+    <Container className={classes.container}>
+      <Typograph className={classes.top}>
+        새 프로젝트 등록
+      </Typograph>
       <form onSubmit={handleOnSubmit}>
-        <InputLabel>제목</InputLabel>
-        <Input value={title} onChange={handleOnChangeTitle} />
-        <InputLabel>본문</InputLabel>
-        <Input value={content} onChange={handleOnChangeContent} />
-        <Button type="submit">등록하기</Button>
+        <FilledInput className={classes.title}
+        placeholder="제목 입력"
+        value={title} 
+        onChange={handleOnChangeTitle} />
+        <FilledInput className={classes.content}
+        placeholder="프로젝트에 대해 설명해주세요"
+        value={content} 
+        onChange={handleOnChangeContent} />
+        <div className={classes.btnSet}>
+          <Button className={classes.btn} type="submit">등록하기</Button>
+        </div>
       </form>
     </Container>
   );
 };
-
-export default NewProject;

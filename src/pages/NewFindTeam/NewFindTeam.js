@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import useStyles from './newFindTeamStyles';
 
@@ -11,6 +12,7 @@ const NewProject = () => {
   const classes = useStyles();
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
+  let history = useHistory();
 
   const handleOnSubmit = useCallback((e) => {
     e.preventDefault();
@@ -21,6 +23,7 @@ const NewProject = () => {
     })
     .then(()=>{
       console.log('success');
+      history.push('/findteam');
     })
     .catch(e=>{
       console.log(e);

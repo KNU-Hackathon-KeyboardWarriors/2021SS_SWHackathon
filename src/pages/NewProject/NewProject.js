@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import useStyles from "./newProjectStyles";
 
@@ -11,6 +12,7 @@ export default function NewProject() {
   const classes = useStyles();
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
+  let history = useHistory();
 
   const handleOnSubmit = useCallback((e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ export default function NewProject() {
     })
     .then(()=>{
       console.log('success');
-      
+      history.push('/projects');
     })
     .catch(e=>{
       console.log(e);

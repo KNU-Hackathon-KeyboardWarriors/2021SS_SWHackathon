@@ -41,7 +41,10 @@ const FindTeamDetails = ({ match }) => {
       <CssBaseline />
       <Container>
         <Typography variant="h3">{crntPrj.title}</Typography>
-        <img src={crntPrj.image} alt="없어용" />
+        <img src={crntPrj.image} alt="" />
+        <Typography>
+          {crntPrj.content}
+        </Typography>
         <Comments data={comments} />
       </Container>
     </React.Fragment>

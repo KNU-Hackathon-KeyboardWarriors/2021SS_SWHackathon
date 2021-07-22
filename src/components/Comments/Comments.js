@@ -43,9 +43,6 @@ const Comments = ({ data }) => {
   return (
     <>
       <div>댓글 {comments.num}개</div>
-      <Button variant="outlined" component={Link} to={"/projects"}>
-        목록
-      </Button>
       <hr />
       <Table>
         <TableBody>{comments_view}</TableBody>

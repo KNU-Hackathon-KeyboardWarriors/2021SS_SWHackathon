@@ -1,26 +1,34 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 
-import Projects from "../../pages/projects/Projects";
-import Buildup from "../../pages/buildup/Buildup";
-import Findteam from "../../pages/findteam/Findteam";
+import Projects from "../../pages/Projects/Projects";
+import Buildup from "../../pages/Buildup/Buildup";
+import Findteam from "../../pages/Findteam/Findteam";
+import ProjectDetails from "../../pages/ProjectDetails/ProjectDetails";
 
-import Header from "../../components/appbar/Appbar";
-import Categories from "../../components/categories/Categories";
+
+import Appbar from "../Appbar/Appbar";
+import Categories from "../Categories/Categories";
+import Copyright from "../Copyright/Copyright"
 
 function App() {
+  let location = useLocation();
   return (
     <>
-      <Header />
+      <Appbar />
       <Categories />
-      <Switch>
+      <Switch location={location.background} >
         <Route exact path="/">
           <Redirect to="/projects" />
         </Route>
         <Route path="/projects" component={Projects} />
         <Route path="/buildup" component={Buildup} />
         <Route path="/findteam" component={Findteam} />
-      </Switch>
+        <Route path="/projectDetail/:projectIndex" component={ProjectDetails} />
+      </Switch>      
+      <footer>
+        <Copyright />
+      </footer>
     </>
   );
 }

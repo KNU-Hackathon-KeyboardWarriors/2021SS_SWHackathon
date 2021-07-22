@@ -5,11 +5,10 @@ import useStyles from "./categoriesStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListItemLink from "../ListItemLink/ListItemLink";
+// import ListItemLink from "../../components/ListItemLink";
 
 const Categories = () => {
   const classes = useStyles();
-  const [onPage, setOnPage] = useState(0);
 
   const menues = [
     { primary: "아이템 둘러보기", to: "/projects" },
@@ -20,11 +19,8 @@ const Categories = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleListItemClick = useCallback((event, index) => {
-    console.log(index);
     setSelectedIndex(index);
   }, []);
-
-  useEffect(() => {}, []);
 
   const menuIteams = menues.map((menu, index) => {
     return (
@@ -34,8 +30,6 @@ const Categories = () => {
         selected={selectedIndex === index}
         onClick={(e) => handleListItemClick(e, index)}
       >
-        {console.log('render')}
-        {console.log(selectedIndex)}
         <ListItemText primary={menu.primary} />
       </ListItem>
     );

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Copyright from '../../components/copyright/Copyright';
 import useStyles from './buildupStyles';
 
 import Button from '@material-ui/core/Button';
@@ -44,9 +43,6 @@ export default function Projects() {
           </Grid>
         </Container>
       </main>
-      <footer className={classes.footer}>
-        <Copyright />
-      </footer>
     </React.Fragment>
   );
 }

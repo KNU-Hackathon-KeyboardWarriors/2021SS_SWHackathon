@@ -1,15 +1,15 @@
 import React from "react";
 import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 
-import Projects from "../../pages/Projects/Projects";
-import Buildup from "../../pages/Buildup/Buildup";
-import Findteam from "../../pages/Findteam/Findteam";
+import Projects from "../../pages/projects/Projects";
+import Buildup from "../../pages/buildup/Buildup";
+import Findteam from "../../pages/findteam/Findteam";
 import ProjectDetails from "../../pages/ProjectDetails/ProjectDetails";
 import NewProject from '../../pages/NewProject/NewProject';
 
-import Appbar from "../Appbar/Appbar";
+import Appbar from "../appbar/Appbar";
 import Categories from "../Categories/Categories";
-import Copyright from "../Copyright/Copyright"
+import Copyright from "../copyright/Copyright"
 
 function App() {
   let location = useLocation();

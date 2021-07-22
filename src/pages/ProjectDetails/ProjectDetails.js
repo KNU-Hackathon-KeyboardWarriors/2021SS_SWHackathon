@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 
+import useStyles from "./projectDetailsStyles";
+
 import Comments from "../../components/Comments/Comments";
 import ModalSubmit from "./ModalSubmit";
 
@@ -25,6 +27,7 @@ const comments = {
 };
 
 const ProjectDetails = ({ match }) => {
+  const classes = useStyles();
   const [crntPrj, setCrntPrj] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,8 +50,10 @@ const ProjectDetails = ({ match }) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container>
-        <Typography variant="h3">{crntPrj.title}</Typography>
+      <Container className={classes.containe}>
+        <Typography className={classes.title_set}>
+          {crntPrj.title}
+        </Typography>
         <img src={crntPrj.image} alt="없어용" />
         <Button variant="outlined" color="primary" onClick={()=>setIsModalOpen(true)}>
           신청하기

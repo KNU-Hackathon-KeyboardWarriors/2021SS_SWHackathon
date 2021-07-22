@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./Chat.css";
 
+import useStyles from "./chatStyles";
+
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
@@ -23,11 +25,12 @@ const firestore = firebase.firestore();
 const analytics = firebase.analytics();
 
 function Chat() {
+    const classes = useStyles();
     const [user] = useAuthState(auth);
 
     return (
-        <div className="Chat">
-            <section> {user ? <ChatRoom /> : <SignIn />}</section>
+        <div className={classes.Chat}>
+            <section className={classes.chat_section}> {user ? <ChatRoom /> : <SignIn />}</section>
         </div>
     );
 }
@@ -40,7 +43,7 @@ function SignIn() {
 
     return (
         <>
-            <button className="sign-in" onClick={signInWithGoogle}>
+            <button className={classes.signin} onClick={signInWithGoogle}>
                 구글로 로그인 하세요
             </button>
         </>
@@ -74,7 +77,7 @@ function ChatRoom() {
 
     return (
         <>
-            <main>
+            <main className={classes.main}>
                 {messages &&
                     messages.map((msg) => (
                         <ChatMessage key={msg.id} message={msg} />
@@ -105,7 +108,7 @@ function ChatMessage(props) {
     return (
         <>
             <div className={`message ${messageClass}`}>
-                <img className="img" src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+                <img className={classes.img} src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
                 <p>{text}</p>
             </div>
         </>

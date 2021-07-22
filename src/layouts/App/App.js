@@ -9,7 +9,7 @@ import Buildup from "../../pages/Buildup/Buildup";
 import BuildupDetails from "../../pages/BuildupDetails/BuildupDetails";
 import NewBuildup from "../../pages/NewBuildup/NewBuildup";
 
-import FindTeam from "../../pages/FindTeam/FindTeam";
+import FindTeam from "../../pages/Findteam/Findteam";
 import FindTeamDetails from "../../pages/FindTeamDetails/FindTeamDetails";
 import NewFindTeam from "../../pages/NewFindTeam/NewFindTeam";
 

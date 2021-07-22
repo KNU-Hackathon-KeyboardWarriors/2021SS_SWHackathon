@@ -20,15 +20,12 @@ export default function Projects() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(()=> {
-    console.log('ue');
     const fetchData = async() => {
-      const res = await axios.get('/getProjects');
+      const res = await axios.get('/projects');
       setProjects(res.data);
       setIsLoading(false);
     }
-    console.log('ue2');
     fetchData();
-    console.log('ue3');
   }, []);
 
   useEffect(()=> {

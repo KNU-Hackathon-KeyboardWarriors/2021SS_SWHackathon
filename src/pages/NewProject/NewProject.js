@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
 import axios from "axios";
-
 import useStyles from "./newProjectStyles";
 
 import Container from "@material-ui/core/Container";
@@ -16,12 +15,13 @@ export default function NewProject() {
   const handleOnSubmit = useCallback((e) => {
     e.preventDefault();
     if(!title || !title.trim() || !content || !content.trim()) return;
-    axios.post('/makeProject', {
+    axios.post('/projects', {
       title: title,
       content: content
     })
     .then(()=>{
       console.log('success');
+      
     })
     .catch(e=>{
       console.log(e);

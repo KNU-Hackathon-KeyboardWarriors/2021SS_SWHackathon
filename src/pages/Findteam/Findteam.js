@@ -28,7 +28,7 @@ export default function FindTeam() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get("/getProjects");
+            const res = await axios.get("/teams");
             setProjects(res.data);
             setIsLoading(false);
         };
@@ -73,7 +73,7 @@ export default function FindTeam() {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Button component={Link} to={"/newproject"}>
+                    <Button component={Link} to={"/newfindteam"}>
                         팀원 찾기
                     </Button>
                 </Container>

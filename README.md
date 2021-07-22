@@ -1,13 +1,15 @@
-# 프로젝트 시작하기
-## Requirement
-* Node.js  
-* Flask
+# 창업 오픈스페이스
+## 팀원 정보
+* 박세영 - Leader/Frontend
+* 황태호 - Backend
+* 이창윤 - Publisher
 
-## 실행방법
-### Backend
-Flask run  
-### Frontend
-yarn start    
-  
-아마 브라우저에 아래 경로를 통해 화면이 뜰 것인데 안뜨면 직접 입력하면 됨  
-http://localhost:3000
+## 주제
+COVID-19로 변화된 대학 생활을 개선할 수 있는
+창의적이고 혁신적인 소프트웨어 자유 개발
+
+KEYWORD - 첨성인, 캠퍼스, 스마트한 대학생활
+## 프로젝트 설명
+
+## 프로젝트 시연
+https://youtube.com

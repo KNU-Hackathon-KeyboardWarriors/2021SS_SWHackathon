@@ -124,7 +124,7 @@ function ChatMessage(props) {
                         "https://api.adorable.io/avatars/23/abott@adorable.png"
                     }
                 />
-                <p>{text}</p>
+                <p className="p" >{text}</p>
             </div>
         </>
     );

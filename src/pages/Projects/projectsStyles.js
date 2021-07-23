@@ -32,15 +32,17 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(6),
   },
   btnn: {
-    marginTop: theme.spacing(3),
+    position: "absolute",
+    right: "10%",
+    top: 20,
     backgroundColor: "red",
     fontSize: 16,
     color: "white",
     fontWeight: "bold",
-    '&:hover': {
-      backgroundColor: "#E00000",
+    "&:hover": {
+        backgroundColor: "#E00000",
     },
-  }
+},
 }));
 
 export default useStyles;
